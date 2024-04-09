@@ -1,0 +1,80 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <!-- <app-message [messageVarClasse]="message"
+      (outputMessage)="message.content = $event"
+      *ngFor="let message of messages">
+      </app-message> -->
+      <!-- <app-message-signal [messageVarClasse]="messageBiding" (outputMessage)="messageBiding.content = $event"></app-message-signal> -->
+      @for (message of messages; track $index) {
+        <app-message-signal [messageVarClasse]="message" (outputMessage)="message.content = $event"></app-message-signal>
+      } @empty {
+        Messages é uma lista vazia.
+      }
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container mt-3">
+  <button class="btn btn-primary" (click)="onMudarMostrarElemento()">Click aqui 'com then e else'</button>
+  <p *ngIf="mostrarElemento; then thenBlockMy else elseBlockMy"></p>
+    <ng-template #thenBlockMy><p>{{ mostrarElemento }} - Mostrando do Then...</p></ng-template>
+    <ng-template #elseBlockMy><p>{{ mostrarElemento }} - Mostrando do Else...</p></ng-template>
+</div> -->
+
+<div class="container mt-3">
+  <button class="btn btn-primary" (click)="onMudarMostrarElemento()">Click aqui 'com then e else'</button>
+  @if (mostrarElemento) {
+    <p>{{ mostrarElemento }} - Mostrando do Then com Control Flow integrado...</p>
+  } @else {
+    <p>{{ mostrarElemento }} - Escondido do Else com Control Flow integrado...</p>
+  }
+</div>
+
+<!-- <div class="container mt-3">
+
+  <div class="row">
+    <button class="col mx-2 btn btn-secondary" (click)="valorNgSwitch=1">Selecione - 1</button>
+    <button class="col mx-2 btn btn-secondary" (click)="valorNgSwitch=2">Selecione - 2</button>
+    <button class="col mx-2 btn btn-secondary" (click)="valorNgSwitch=3">Selecione - 3</button>
+  </div>
+  <h5>Você selecionou: {{ valorNgSwitch }}</h5>
+
+  <div [ngSwitch]="valorNgSwitch">
+    <div *ngSwitchCase="1">1. Template - <b>{{ valorNgSwitch }}</b></div>
+    <div *ngSwitchCase="2">2. Template - <b>{{ valorNgSwitch }}</b></div>
+    <div *ngSwitchCase="3">3. Template - <b>{{ valorNgSwitch }}</b></div>
+    <div *ngSwitchDefault>Default Template</div>
+  </div>
+
+</div> -->
+
+<div class="container mt-3">
+
+  <div class="row">
+    <button class="col mx-2 btn btn-secondary" (click)="valorNgSwitch=1">Selecione - 1</button>
+    <button class="col mx-2 btn btn-secondary" (click)="valorNgSwitch=2">Selecione - 2</button>
+    <button class="col mx-2 btn btn-secondary" (click)="valorNgSwitch=3">Selecione - 3</button>
+  </div>
+  <h5>Você selecionou: {{ valorNgSwitch }}</h5>
+
+  @switch (valorNgSwitch) {
+    @case (1) {
+      <div>1. Template - <b>{{ valorNgSwitch }}</b></div>
+    }
+
+    @case (2) {
+      <div >2. Template - <b>{{ valorNgSwitch }}</b></div>
+    }
+
+    @case (3) {
+      <div >3. Template - <b>{{ valorNgSwitch }}</b></div>
+    }
+
+    @default {
+      <div >Default Template</div>
+    }
+  }
+
+</div>
+
