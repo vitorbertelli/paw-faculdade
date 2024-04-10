@@ -1,11 +1,21 @@
-<div class="container mt-3">
+<div class="container">
+  <div class="row mt-3 gap-3">
+
+    <app-message-input></app-message-input>
+
+    <app-message-list></app-message-list>
+
+  </div>
+</div>
+
+<!-- <div class="container mt-3">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <!-- <app-message [messageVarClasse]="message"
+      <app-message [messageVarClasse]="message"
       (outputMessage)="message.content = $event"
       *ngFor="let message of messages">
-      </app-message> -->
-      <!-- <app-message-signal [messageVarClasse]="messageBiding" (outputMessage)="messageBiding.content = $event"></app-message-signal> -->
+      </app-message>
+      <app-message-signal [messageVarClasse]="messageBiding" (outputMessage)="messageBiding.content = $event"></app-message-signal>
       @for (message of messages; track $index) {
         <app-message-signal [messageVarClasse]="message" (outputMessage)="message.content = $event"></app-message-signal>
       } @empty {
@@ -13,7 +23,7 @@
       }
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- <div class="container mt-3">
   <button class="btn btn-primary" (click)="onMudarMostrarElemento()">Click aqui 'com then e else'</button>
@@ -22,14 +32,14 @@
     <ng-template #elseBlockMy><p>{{ mostrarElemento }} - Mostrando do Else...</p></ng-template>
 </div> -->
 
-<div class="container mt-3">
+<!-- <div class="container mt-3">
   <button class="btn btn-primary" (click)="onMudarMostrarElemento()">Click aqui 'com then e else'</button>
   @if (mostrarElemento) {
     <p>{{ mostrarElemento }} - Mostrando do Then com Control Flow integrado...</p>
   } @else {
     <p>{{ mostrarElemento }} - Escondido do Else com Control Flow integrado...</p>
   }
-</div>
+</div> -->
 
 <!-- <div class="container mt-3">
 
@@ -49,7 +59,7 @@
 
 </div> -->
 
-<div class="container mt-3">
+<!-- <div class="container mt-3">
 
   <div class="row">
     <button class="col mx-2 btn btn-secondary" (click)="valorNgSwitch=1">Selecione - 1</button>
@@ -76,5 +86,4 @@
     }
   }
 
-</div>
-
+</div> -->
