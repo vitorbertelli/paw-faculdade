@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Message } from '../../models/message.model';
 import { CommonModule } from '@angular/common';
+
+import { Message } from '../../models/message.model';
 
 @Component({
   selector: 'app-message-signal',
