@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MessageSignalComponent } from '../message-signal/message-signal.component';
-import { MessageService } from '../../services/message.service';
-import { Message } from '../../models/message.model';
+
+import { MessageService } from '../../../services/message.service';
+import { Message } from '../../../models/message.model';
 
 @Component({
   selector: 'app-message-list',
