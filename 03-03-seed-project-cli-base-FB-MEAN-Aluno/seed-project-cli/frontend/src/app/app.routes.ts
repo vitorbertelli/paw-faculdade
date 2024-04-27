@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
-import { MessageComponent } from './components/messages/message/message.component';
-import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { MessageComponent } from './messages/message.component';
+import { AuthenticationComponent } from './auth/authentication.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 import { AUTH_ROUTES } from './auth.routes';

@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 
-import { MessageService } from './services/message.service';
+import { MessageService } from './messages/message.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [

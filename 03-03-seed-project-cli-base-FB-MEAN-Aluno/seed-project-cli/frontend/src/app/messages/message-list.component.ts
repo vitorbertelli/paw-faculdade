@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MessageSignalComponent } from '../message-signal/message-signal.component';
+import { MessageSignalComponent } from './message-signal.component';
 
-import { MessageService } from '../../../services/message.service';
-import { Message } from '../../../models/message.model';
+import { MessageService } from './message.service';
+import { Message } from './message.model';
 
 @Component({
   selector: 'app-message-list',
@@ -11,11 +11,7 @@ import { Message } from '../../../models/message.model';
   imports: [
     MessageSignalComponent
   ],
-  templateUrl: './message-list.component.html',
-  styleUrl: './message-list.component.css',
-  // providers: [
-  //   MessageService
-  // ]
+  templateUrl: './message-list.component.html'
 })
 export class MessageListComponent implements OnInit {
 

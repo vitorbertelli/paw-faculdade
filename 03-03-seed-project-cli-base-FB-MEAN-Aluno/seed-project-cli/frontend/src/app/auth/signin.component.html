@@ -1,0 +1,32 @@
+<h1>SIGN IN</h1>
+<div class="col-md-8 col-md-offset-2">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" formControlName="emailTS">
+    </div>
+    @if (myForm.get("emailTS")?.errors?.["required"] && myForm.get("emailTS")?.touched) {
+      <div><p style="color: red;">e-mail é obrigatório.</p></div>
+    }
+    @if (myForm.get("emailTS")?.errors?.["pattern"] && myForm.get("emailTS")?.touched) {
+      <div><p style="color: red;">e-mail inválido.</p></div>
+    }
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input type="password" id="password" class="form-control" formControlName="passwordTS">
+    </div>
+    @if (myForm.get("passwordTS")?.errors?.["required"] && myForm.get("passwordTS")?.touched) {
+      <div><p style="color: red;">senha é obrigatório.</p></div>
+    }
+    @if (myForm.get("passwordTS")?.errors?.["minlength"] && myForm.get("passwordTS")?.touched) {
+      <div><p style="color: red;">senha deve ter no mínimo 4 caracteres.</p></div>
+    }
+    @if (myForm.get("passwordTS")?.errors?.["minusculoF"] && myForm.get("passwordTS")?.touched) {
+      <div><p style="color: red;">senha aceita apenas letras minúsculas.</p></div>
+    }
+    <br>
+    <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">
+      Logar
+    </button>
+  </form>
+</div>

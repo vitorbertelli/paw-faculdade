@@ -8,8 +8,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
     RouterOutlet,
     RouterModule
   ],
-  templateUrl: './authentication.component.html',
-  styleUrl: './authentication.component.css'
+  templateUrl: './authentication.component.html'
 })
 export class AuthenticationComponent {
 
