@@ -1,15 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-var path = require('path');
+const path = require('path');
 
 const mongoose = require("mongoose");
 
-var appRoutes = require('./routes/app');
+const messageRoutes = require ("./routes/message");
+const appRoutes = require('./routes/app');
 
 const app = express();
 
 //Conexão com o MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017.node-angular")
+mongoose.connect("mongodb://127.0.0.1:27017/node-angular")
   .then(() => {
     console.log("Conexão com o MongoDB estabelecida com sucesso.");
   })
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/message", messageRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
