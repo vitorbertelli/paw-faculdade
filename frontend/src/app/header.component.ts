@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule
   ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
 
