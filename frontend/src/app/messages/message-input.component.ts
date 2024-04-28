@@ -24,7 +24,18 @@ export class MessageInputComponent {
   onSubmit(form: NgForm) {
     console.log("MessageInputComponent: " + form);
     const messageAux: Message = new Message(form.value.myContentngForm, "Vitor");
-    this.messageService.addMessage(messageAux);
+    this.messageService.addMessage(messageAux)
+      .subscribe({
+        next: (dadosSucesso: any) => {
+          console.log(dadosSucesso.myMsgSucesso);
+          console.log({ content: dadosSucesso.objMessageSave.content});
+          console.log({ id: dadosSucesso.objMessageSave._id});
+        },
+        error: (dadosError) => {
+          console.log(`$== !!Error (subscribe): - ${dadosError.info_extra} ==`);
+          console.log(dadosError);
+        }
+      });
     form.resetForm();
   }
 }

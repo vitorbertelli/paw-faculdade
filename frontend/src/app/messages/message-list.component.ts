@@ -15,15 +15,23 @@ import { Message } from './message.model';
 })
 export class MessageListComponent implements OnInit {
 
-  messages: Message[] = [
-    new Message("Texto 01 da Mensagem", "VitorBertelli"),
-    new Message("Texto 02 da Mensagem", "BertelliPrado"),
-    new Message("Texto 03 da Mensagem", "PradoVitor")
-  ]
+  messages: Message[] = []
 
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.messages = this.messageService.getMessages();
+    this.messageService.getMessages().subscribe({
+      next: (dadosSucesso: any) => {
+        console.log(dadosSucesso.myMsgSucesso);
+        console.log({ content: dadosSucesso.objsMessagesRecuperados[0].content});
+        console.log({ id: dadosSucesso.objsMessagesRecuperados[0].messageId});
+
+        this.messages = dadosSucesso.objsMessagesRecuperados;
+      },
+      error: (dadosError) => {
+        console.log(`$== !!Error (subscribe): - ${dadosError.info_extra} ==`);
+        console.log(dadosError);
+      }
+    });
   }
 }
