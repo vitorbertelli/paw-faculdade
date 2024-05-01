@@ -5,7 +5,7 @@ const Message = require("../models/message");
 
 router.get("/", async function(req, res, next) {
   try {
-    const messageFindTodos = await Message.find({});
+    const messageFindTodos = await Message.find({}).populate("user");
 
     res.status(200).json({
       myMsgSucesso: "Mensagens recuperadas com sucesso!",
@@ -22,7 +22,8 @@ router.get("/", async function(req, res, next) {
 
 router.post("/", async function(req, res, next) {
   const messsageObject = new Message({
-    content: req.body.content
+    content: req.body.content,
+    user: req.body.user
   });
   try {
     const messageSave = await messsageObject.save();
