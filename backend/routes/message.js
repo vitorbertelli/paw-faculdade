@@ -40,4 +40,36 @@ router.post("/", async function(req, res, next) {
   }
 });
 
+router.patch("/:id", async function(req, res) {
+  const { id } = req.params;
+  try {
+    await Message.findByIdAndUpdate(id, { $set: req.body });
+    const messageSave = await Message.findById(id);
+    res.status(200).json({
+      myMsgSucesso: "Mensagem editada com sucesso!",
+      objMessageSave: messageSave
+    });
+  }
+  catch(error) {
+    return res.status(500).json({
+      myErrorTitle: "Serve-side: Um erro aconteceu ao editar a mensagem.",
+      myError: error 
+    });
+  }
+});
+
+router.delete("/:id", async function(req, res) {
+  const { id } = req.params;
+  try {
+    await Message.findByIdAndDelete(id);
+    res.status(200).json({ myMsgSucesso: "Mensagem deletada com sucesso!"});
+  }
+  catch(error) {
+    return res.status(500).json({
+      myErrorTitle: "Serve-side: Um erro aconteceu ao deletar a mensagem.",
+      myError: error 
+    });
+  }
+});
+
 module.exports = router;
