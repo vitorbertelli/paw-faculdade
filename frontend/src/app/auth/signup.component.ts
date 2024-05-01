@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
       ]),
       emailTS: new FormControl(null, [
         Validators.required,
-        Validators.pattern("[a-zA-Z0-9\-\_\.]+@a-zA-Z0-9\-\_\.]+")
+        Validators.pattern("[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+")
       ]),
       passwordTS: new FormControl(null, Validators.required)
     })

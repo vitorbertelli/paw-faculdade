@@ -22,10 +22,6 @@ export class MessageListComponent implements OnInit {
   ngOnInit(): void {
     this.messageService.getMessages().subscribe({
       next: (dadosSucesso: any) => {
-        console.log(dadosSucesso.myMsgSucesso);
-        console.log({ content: dadosSucesso.objsMessagesRecuperados[0].content});
-        console.log({ id: dadosSucesso.objsMessagesRecuperados[0].messageId});
-
         this.messages = dadosSucesso.objsMessagesRecuperados;
       },
       error: (dadosError) => {
