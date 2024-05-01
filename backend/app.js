@@ -5,6 +5,7 @@ const path = require('path');
 const mongoose = require("mongoose");
 
 const messageRoutes = require ("./routes/message");
+const userRoutes = require ("./routes/user");
 const appRoutes = require('./routes/app');
 
 const app = express();
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/message", messageRoutes);
+app.use("/auth", userRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

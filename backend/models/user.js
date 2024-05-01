@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -8,5 +9,15 @@ const schema = Schema({
   email: {type: String, required: true, unique: true},
   messages: [{type: Schema.Types.ObjectId, ref: "Message"}]
 });
+
+schema.pre("save", async function(next) {
+  if(!this.isModified("password")) return next();
+
+  this.password = await bcrypt.hash(this.password, 12);
+});
+
+schema.methods.verificaPassword = async function(passwordEntrada, userPassword) {
+  return await bcrypt.compare(passwordEntrada, userPassword);
+};
 
 module.exports = mongoose.model("User", schema);
